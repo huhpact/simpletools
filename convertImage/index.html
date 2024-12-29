@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Free online image converter - Instantly convert images to PNG, JPG, WEBP, GIF, PDF, SVG, ICO, and more. Fast, secure, and high-quality browser-based image conversion.">
+        <meta name="keywords" content="image converter, convert image, PNG converter, JPG to PNG, PNG to JPG, WEBP converter, GIF converter, PDF to image, SVG to PNG, ICO converter, free image tools, browser-based tools, online tools">
+        <meta name="author" content="Optixio">
+        <meta name="robots" content="index, follow">
+        <meta name="googlebot" content="index, follow">
+  
+        <meta property="og:title" content="Optixio - Free Image Conversion">
+        <meta property="og:description" content="Easily convert images to PNG, JPG, WEBP, GIF, PDF, SVG, ICO, and more formats for free. High-quality, instant conversion with no server upload needed.">
+        <meta property="og:url" content="https://simpletools.me/optixio">
+        <meta property="og:type" content="website">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Optixio - Free Image Conversion">
+        <meta name="twitter:description" content="Convert images instantly to multiple formats like PNG, JPG, WEBP, GIF, and more. Free and private browser-based tool.">
+    
+        <link rel="canonical" href="https://simpletools.me/optixio">
+        <link rel="alternate" hreflang="en" href="https://simpletools.me/optixio">
+        <link rel="alternate" hreflang="de" href="https://simpletools.me/optixio?lang=de">
+        <link rel="alternate" hreflang="fr" href="https://simpletools.me/optixio?lang=fr">
+        <link rel="alternate" hreflang="es" href="https://simpletools.me/optixio?lang=es">
+        <link rel="alternate" hreflang="ja" href="https://simpletools.me/optixio?lang=ja">
+        <link rel="apple-touch-icon" sizes="180x180" href="/s/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="57x57" href="/s/apple-touch-icon-57x57.png">
+        <link rel="icon" type="image/png" sizes="76x76" href="/s/apple-touch-icon-76x76.png">
+        <meta name="theme-color" content="#ffffff">
+    
+        <title>Optixio - Free Image Conversion</title>
+        <link rel="stylesheet" href="/convertImage/index.css">
+    </head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="content">
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ja">日本語</option>
+                </select>
+            </div>
+
+            <main class="container">
+                <h1 class="title" data-i18n="title">Optixio</h1>
+                <p class="subtitle" data-i18n="subtitle">Transform your images instantly</p>
+
+                <div class="features">
+                    <div class="feature-box" style="--delay: 0s">
+                        <svg class="feature-icon">
+                            <use href="#icon-zap"/>
+                        </svg>
+                        <h3 data-i18n="features.speed.title">Lightning Fast</h3>
+                        <p data-i18n="features.speed.desc">Convert in milliseconds</p>
+                    </div>
+                    <div class="feature-box" style="--delay: 0.2s">
+                        <svg class="feature-icon">
+                            <use href="#icon-shield"/>
+                        </svg>
+                        <h3 data-i18n="features.privacy.title">100% Private</h3>
+                        <p data-i18n="features.privacy.desc">Browser-only conversion</p>
+                    </div>
+                    <div class="feature-box" style="--delay: 0.4s">
+                        <svg class="feature-icon">
+                            <use href="#icon-sparkles"/>
+                        </svg>
+                        <h3 data-i18n="features.quality.title">High Quality</h3>
+                        <p data-i18n="features.quality.desc">Lossless conversion</p>
+                    </div>
+                </div>
+
+                <div class="dropzone" id="dropzone">
+                    <div class="dropzone-content">
+                        <svg class="upload-icon">
+                            <use href="#icon-upload"/>
+                        </svg>
+                        <h2 data-i18n="drop.title">Drop your image here</h2>
+                        <p data-i18n="drop.subtitle">or click to select</p>
+                        <p class="formats" data-i18n="drop.formats">Supports PNG, JPG, WEBP, GIF, PDF, SVG, ICO</p>
+                    </div>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+
+                <div class="preview-container" id="preview-container" hidden>
+                    <div class="preview-image">
+                        <img id="preview-img" alt="Preview">
+                        <div class="image-info" id="image-info"></div>
+                    </div>
+                    <div class="conversion-options">
+                        <div class="format-grid" id="format-grid"></div>
+                        <button class="convert-button" id="convert-button" data-i18n="convert" disabled>Convert</button>
+                    </div>
+                </div>
+            </main>
+
+            <div class="error-popup" id="error-popup">
+                <div class="error-content">
+                    <h3 data-i18n="error.title">Error</h3>
+                    <p id="error-message"></p>
+                    <button class="error-close" onclick="closeError()">×</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p data-i18n="footer">Made with ♥ by Optixio</p>
+        </footer>
+    </div>
+
+    <svg hidden>
+        <symbol id="icon-zap" viewBox="0 0 24 24">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </symbol>
+        <symbol id="icon-shield" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </symbol>
+        <symbol id="icon-sparkles" viewBox="0 0 24 24">
+            <path d="M12 3l1.88 5.79L19.67 7l-4.21 4.21L19.67 17l-5.79-1.88L12 21l-1.88-5.79L4.33 17l4.21-4.21L4.33 7l5.79 1.88L12 3z"/>
+        </symbol>
+        <symbol id="icon-upload" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+        </symbol>
+    </svg>
+
+    <script src="/convertImage/js/utils.js"></script>
+    <script src="/convertImage/js/i18n.js"></script>
+    <script src="/convertImage/js/error-handler.js"></script>
+    <script src="/convertImage/js/converter.js"></script>
+    <script src="/convertImage/js/main.js"></script>
+</body>
+</html>
