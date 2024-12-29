@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassAlchemy - generate safe passwords for free</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+		<link rel="apple-touch-icon" sizes="180x180" href="/s/apple-touch-icon.png">
+  	<link rel="icon" type="image/png" sizes="57x57" href="/s/apple-touch-icon-57x57.png">
+    <link rel="icon" type="image/png" sizes="76x76" href="/s/apple-touch-icon-76x76.png">
+		<meta name="description" content="Generate strong, unique passwords with PassAlchemy. Protect your accounts with advanced password security and encryption tools.">
+		<meta name="keywords" content="password generator, secure passwords, strong passwords, PassAlchemy, online security, password tools">
+		<meta name="robots" content="index, follow">
+
+</head>
+<body>
+        <h1 class="title">PassAlchemy</h1>
+        <p class="subtitle">Create strong, secure passwords in seconds</p>
+        <div class="language-selector">
+            <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+            <button onclick="changeLanguage('de')" class="lang-btn">DE</button>
+            <button onclick="changeLanguage('fr')" class="lang-btn">FR</button>
+            <button onclick="changeLanguage('es')" class="lang-btn">ES</button>
+            <button onclick="changeLanguage('jp')" class="lang-btn">JP</button>
+        </div>
+
+    <main>
+        <div class="info-cards">
+            <div class="card">
+                <h3><i class="fas fa-shield-alt"></i> <span data-i18n="strengthTitle">Password Strength</span></h3>
+                <p data-i18n="strengthDesc">Mix symbols, numbers, and words for stronger passwords</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-lock"></i> <span data-i18n="securityTitle">Security Tips</span></h3>
+                <p data-i18n="securityDesc">Never share your password with anyone</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-ruler"></i> <span data-i18n="lengthTitle">Length Matters</span></h3>
+                <p data-i18n="lengthDesc">Longer passwords are harder to crack</p>
+            </div>
+        </div>
+
+        <div class="generator-container">
+            <div class="options">
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <div class="setting-header">
+                            <i class="fas fa-text-height"></i>
+                            <label for="length" data-i18n="passwordLength">Length</label>
+                        </div>
+                        <input type="number" id="length" min="8" max="50" value="16">
+                    </div>
+
+                    <div class="setting-card">
+                        <div class="setting-header">
+                            <i class="fas fa-font"></i>
+                            <label for="words" data-i18n="includeWords">Custom Words</label>
+                        </div>
+                        <input type="text" id="words" placeholder="cat, dog, house">
+                    </div>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="numbers" checked>
+                            <i class="fas fa-hashtag"></i>
+                            <span data-i18n="numbers">Numbers</span>
+                        </label>
+                    </div>
+                    <div class="setting-card">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="symbols" checked>
+                            <i class="fas fa-at"></i>
+                            <span data-i18n="symbols">Symbols</span>
+                        </label>
+                    </div>
+                    <div class="setting-card">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="letters" checked>
+                            <i class="fas fa-font"></i>
+                            <span data-i18n="letters">Letters</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn generate-btn">
+                    <i class="fas fa-bolt"></i> Generate Password
+                </button>
+            </div>
+        </div>
+
+        <div class="password-result">
+            <div class="password-display">
+                <input type="text" id="passwordOutput" readonly>
+                <button class="btn copy-btn">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            <div class="strength-meter">
+                <div class="strength-meter-fill"></div>
+            </div>
+            <div class="strength-label">
+                <span>Strength: Waiting...</span>
+                <span>0%</span>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p data-i18n="footer">Created with ❤️ by PassAlchemy - simpletools.me</p>
+    </footer>
+
+    <script src="js/passwordGenerator.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="translations.js"></script>
+    <script>
+        new UI();
+    </script>
+</body>
+</html>
